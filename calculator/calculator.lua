@@ -8,6 +8,7 @@ Description: 学习程序1: 四则计算器
 -- 执行加法
 -- @param num_f 被加数
 -- @param num_r 加数
+-- @return 计算结果
 local function add(num_f, num_r) --加法
     return num_f + num_r        
 end
@@ -15,6 +16,7 @@ end
 -- 执行减法
 -- @param num_f 被减数
 -- @param num_r 减数
+-- @return 计算结果
 local function minus(num_f, num_r) --减法
     return num_f - num_r
 end
@@ -22,6 +24,7 @@ end
 -- 执行乘法
 -- @param num_f 被乘数
 -- @param num_r 乘数
+-- @return 计算结果
 local function multiply(num_f, num_r) --乘法
     return num_f * num_r
 end
@@ -30,6 +33,7 @@ end
 -- @param num_f 被除数
 -- @param num_r 除数
 -- @raise 除数为0
+-- @return 计算结果
 local function divide(num_f, num_r) --除法
     if num_r == 0 then
         error('divide by zero')
@@ -47,15 +51,9 @@ local operations = {
 -- 主循环
 while true do
 
-    local operators = {
-        ["+"] = true,
-        ["-"] = true,
-        ["*"] = true,
-        ["/"] = true,
-    }
     io.write("operator>>>")
     local operator = io.read()
-    if not operators[operator] then
+    if not operations[operator] then
         error('invalid operator')    
     end
 
