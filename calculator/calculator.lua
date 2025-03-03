@@ -17,7 +17,7 @@ end
 -- @param num_f 被减数
 -- @param num_r 减数
 -- @return 计算结果
-local function minus(num_f, num_r) --减法
+local function substract(num_f, num_r) --减法
     return num_f - num_r
 end
 
@@ -43,7 +43,7 @@ end
 
 local operations = {
     ["+"] = add,
-    ["-"] = minus,
+    ["-"] = substract,
     ["*"] = multiply,
     ["/"] = divide,
 }

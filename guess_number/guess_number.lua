@@ -37,7 +37,7 @@ while KEEP_PLAYING do
     local target = math.random(1, 100)
     print('Target number generated')
     
-    -- 单词猜测循环
+    -- 单次猜测
     while true do
         io.write('>>>')
         local input = io.read()
