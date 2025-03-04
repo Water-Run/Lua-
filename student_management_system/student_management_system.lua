@@ -28,11 +28,9 @@ local function legal_id(id)
     end
 end
 
---[[
-检查输入的成绩是否合法: 0.0-100.0
-Param score: 待检查的成绩
-Return boolean: 成绩是否合法
-]]
+-- 检查输入的成绩是否合法: 0.0-100.0
+-- @param score: 待检查的成绩
+-- @return boolean: 成绩是否合法
 local function legal_score(score)
     if type(score) == "number" and score >= 0.0 and score <= 100.0 then
         return true
@@ -41,13 +39,11 @@ local function legal_score(score)
     end
 end
 
---[[
-为表添加学生数据  
-Param id: 学生的学号,三位数字字符串
-Param name: 学生的姓名
-Param score: 学生的成绩
-Return boolean: 写入成功与否
-]]
+-- 为表添加学生数据  
+-- @param id: 学生的学号,三位数字字符串
+-- @param name: 学生的姓名
+-- @param score: 学生的成绩
+-- @return boolean: 写入成功与否
 local function add(id, name, score) -- 增加数据
     -- 输入检查
     if not legal_id(id) then
@@ -73,11 +69,9 @@ local function add(id, name, score) -- 增加数据
     return true
 end
 
---[[
-删除表中的指定学号的学生  
-Param id: 待删除的学生学号
-Return boolean: 删除成功与否
-]]
+-- 删除表中的指定学号的学生  
+-- @param id: 待删除的学生学号
+-- @return boolean: 删除成功与否
 local function delete(id) -- 增加数据
     -- 输入检查
     if not legal_id(id) then
@@ -98,10 +92,8 @@ local function delete(id) -- 增加数据
     return false
 end
 
---[[
-格式化显示表中的全部数据
-Return boolean: 表是否非空
-]]
+-- 格式化显示表中的全部数据
+-- @return boolean: 表是否非空
 local function listall()
     -- 打印表头
     print(string.format("%-10s %-20s %-10s", "ID", "NAME", "SCORE"))
@@ -129,13 +121,11 @@ local function listall()
     return true
 end
 
---[[
-更新指定学号学生的数据
-Param id: 待更新的学生学号
-Param name: 更新后的学生姓名.该项为nil不进行更改
-Param score: 更新后的学生成绩.范围在0.0-100.0.设该项为nil不进行更改
-Return boolean: 更新是否成功
-]]
+-- 更新指定学号学生的数据
+-- @param id: 待更新的学生学号
+-- @param name: 更新后的学生姓名.该项为nil不进行更改
+-- @param score: 更新后的学生成绩.范围在0.0-100.0.设该项为nil不进行更改
+-- @return boolean: 更新是否成功
 local function update(id, name, score)
     -- 检查学号是否合法
     if not legal_id(id) then
@@ -172,11 +162,9 @@ local function update(id, name, score)
     return false
 end
 
---[[
-解析输入的指令并执行
-Param command: 待执行的指令
-Return boolean: 指令是否非结束程序(exit)
-]]
+-- 解析输入的指令并执行
+-- @param command: 待执行的指令
+-- @return boolean: 指令是否非结束程序(exit)
 local function parser(command)
     -- 去除首尾空格并统一转换为小写
     command = command:match("^%s*(.-)%s*$")
